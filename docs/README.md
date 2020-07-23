@@ -1,18 +1,23 @@
-## Ready to build an API?
+## BGS Groundhog
 
-* Start with the [introduction](main-content/introduction).
-* Ask these [questions](main-content/introduction#user-research) to understand API user requirements better.
-
-## Looking for a reference implementation?
-
-* [Python implementation](reference-implementations/python)
-* [Node implementation](reference-implementations/node)
-* [Java implementation](reference-implementations/java)
+* [Introduction](main-content/introduction).
+* [User Guide](main-content/userguide).
 
 ## Have a specific question?
 
 * Use the search bar in the top left to search this documentation
 * Check the [FAQ section](other/faq)
 
+## Have an issue?
+
+Raise an issue [Issue Tracker](https://github.com/BritishGeologicalSurvey/Groundhog/issues) 
+
+
+### Generating the documentation
+
+Convert docx to rst & extract images to folder 
+```bash
+pandoc -s Groundhog_User_Guide.docx -t rst -o userguide.rst --extract-media=media
+```
 
 

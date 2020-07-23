@@ -2,20 +2,19 @@
 
 
 
-![logo](_media/api-logo.svg)
+![logo](_media/logo.png)
 
-# API Guidance Documentation <small>0.1</small>
+# BGS Groundhog Documentation <small>2.1</small>
 
-**Making the API development more fun**
 
-- Develop APIs faster
-- Follow best practices
-- Find reference implementations
 
-[Start Here](main-content/introduction)
-[Reference Implementations](reference-implementations/python)
+[User Guide](main-content/userguide)
+[Introduction](main-content/introduction)
+[Download PDF](maincontent/groundhoguserguide.pdf)
+
+
 
 <!-- background color -->
-![color](#4f4f4f)
+![color](#003042)
 
 
