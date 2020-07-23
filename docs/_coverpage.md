@@ -10,7 +10,7 @@
 
 [User Guide](main-content/userguide)
 [Introduction](main-content/introduction)
-[Download PDF](maincontent/groundhoguserguide.pdf)
+[Download PDF](https://github.com/KoalaGeo/docsify_test/raw/master/docs/main-content/groundhoguserguide.pdf)
 
 
 
