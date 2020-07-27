@@ -33,6 +33,10 @@ For Groundhog Professional license keys and trials please visit LQM -
 Documenting the Documentation
 =============================
 
+```
+pandoc -s Groundhog_User_Guide.docx -t gfm -o userguide.md --extract-media=.
+```
+
 This documentation is written in ReStructured Text hosted on GitHub
 pages, built using Sphinx via Gitub Actions CI/CD.
 
