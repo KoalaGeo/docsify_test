@@ -7,7 +7,7 @@
 # Using QGIS in Mineral Exploration
 
 [User Guide](main-content/userguide)
-[Introduction](main-content/introduction)
+[Introduction](https://github.com/KoalaGeo/docsify_test/#/?id=summary)
 [Download PDF](https://github.com/KoalaGeo/docsify_test/raw/master/docs/main-content/QGIS_MinExpln_draft_202009.pdf)
 
 Grant Boxer (FAIG, M GSA)
