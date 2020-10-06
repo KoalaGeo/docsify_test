@@ -1,92 +1,15 @@
 
-Introduction
+Summary
 ============
 
-We all believe that a safe, sustainable and well-understood environment
-that makes best use of new and existing resources is a cornerstone of
-progress.
+QGIS is an open source GIS program for the display and analysis of GIS data. Ithas developed significantly in the past few years and is now a valuable tool for the mineral exploration industry, anda viable alternative to the commercially available GIS packages. Although not specifically written for geological applications, QGIS cando most of the required GIS tasks required by today’s geoscientists.The terminology is different to the usual earth sciences programs but many QGIS algorithms do the same thing but with a different name. There is no dedicated drill hole or cross section module available for QGIS currently,but discussions and plans are progressing to develop this module in the future.The Geoscience plugin is a basic drill hole display optionthat is available as a free plugin.This manual examines QGIS and how QGIS can assist geoscientists inundertake mappingand geoscientifictasks in their day-to-day work. The manual has evolved during several years teaching QGIS to geoscientists inAustralia and has been produced to offer a go-to document for earth science related GIS activities.Accessing data from the internet viaweb map and web feature servers is illustrated to show how using this data can help with compiling available data for an area. Detailed aerial photography and Google Earth can be easily integrated withmapping data to allow the creationof accurate base maps for a variety of geological applications. A wide rangeof vector and raster (grid and image) data formats can be easily imported into QGIS, includingGPS gpx files. The presentation options for point, line and polygon data are extensive and easily customised. A variety of geological symbols and pattern fills can be applied to points, lines and polygons.Geochemical and geophysical data can also be presented in a variety of display options. Basic 3D displayof map data is also available via the QGIS2threejsplug-in.QGIS has many plug-ins for specialised tasks and the semi-automatic classification plug-in (SCP), is one example where userscanselect, download and process ASTER, Landsat and Sentinel 2 satellite data.It is recommended that new users peruse the plugins list to see what plugins are available and for those that may be of use in their work.Map production is easy in QGIS with the “Print Layout”allowing extensive options for the display and printing of maps.This document is a working draft and in continuous development. There may be errors and omissions,and these will be rectified as time permits.This manual applies to version 3.14.Please feel free to share this documentand please contact me if you find any errors.
 
-From the management and use of natural resources to the safe creation,
-regeneration and maintenance of the built environment, we understand
-that high-quality site investigation coupled with conceptual geological
-understanding is key. Software that enables you to interpret your data,
-create models and communicate risks and insights can take things to the
-next level, but such digital tools are often complex, highly specialised
-and costly.
-
-That\'s why we\'re developing **Groundhog Desktop**
-
-We believe that you should have access to geological software which is
-powerful, without it being complicated or expensive. Our software is
-available in both no-cost \"Community\" and low-cost \"Professional\"
-editions. With Groundhog, our mission is to provide you with a simple,
-effective way of visualising and interpreting site data as well as
-developing conceptual and 3D digital geological models.
-
-To get started with the no-cost Community Edition of our software,
-please go to <https://www.bgs.ac.uk/groundhog>
-
-For Groundhog Professional license keys and trials please visit LQM -
-<https://www.lqm.co.uk/csm>
-
-
-Documenting the Documentation
+Introduction
 =============================
 
-```
-pandoc -s Groundhog_User_Guide.docx -t gfm -o userguide.md --extract-media=.
-```
+This document is aimed at the exploration geologist,but the techniques outlined are easily transferrable to other areas. The author has been usingQGIS since 2015 and the version used in this documentis version 3.14.The reader is encouraged to join the international online QGIS user forum at http://lists.osgeo.org/mailman/listinfo/qgis-user. This document will not go into thedetail that is covered by the official QGIS User Guide and Training Manuals(https://docs.qgis.org/testing/pdf/en/) and other referencebooks (e.g. Graser 2016) on QGIS on topics like editing etc., but will discuss those tools used particularly in geological mapping, mineral exploration and remote sensing.See this video for an explanation of some of the advanced editing functions -https://youtu.be/jZYKGrIyVCA.
 
-This documentation is written in ReStructured Text hosted on GitHub
-pages, built using Sphinx via Gitub Actions CI/CD.
+[Advanced Editing](https://www.youtube.com/embed/jZYKGrIyVCA ':include :type=iframe width=100% height=400px')
 
-To setup
+The original default file format for QGIS was the ESRI shape file (*.shp) and this format has been around for many years and can be read by many software products. It is an old format and has limitations, e.g. field names are limited to 10 characters. QGIS isadoptingthe new “Geopackage” file format as its default spatial file format. Geopackage files can have different types of vector geometry –points, lines and polygons –and can also include raster images. Geopackage files can be up to 140 TB in size! Layers can be imported into an existing Geopackage by dragging from the Layer panel onto the Geopackagenamein the Browser panel. Styling information can be saved into the Geopackage file. When digitising into a Geopackage file, each new feature is auto numbered.Raster images imported into a Geopackage appear to be significantly compressed without any major loss of quality.ESRI and recent MapInfo products can read Geopackage files.The author has been using QGIS since 2015 after about 20 years using the MapInfo-Discover software.He has been involved in exploration and mining geology for over 40 years, with almost 20 years with CRA Exploration Pty Limited, Argyle Diamonds and Rio Tinto Exploration from 1979 till 1997. The past 20 years (1998 –present) has been engaged in consulting roles to the diamond exploration and mining industry with activities in Australia, Brazil, China, Greenland and India, and exploration for other commodities including base metals, iron ore, and manganese
 
--   follow Sphinx quickstart
--   save to GitHub repo
--   edit repo settings to enable GitHub pages from gh-pages branch.
--   Create .github/workflows/gh-pages.yml
-
-``` {.bash}
-name: github pages
-
-on:
-push:
-branches:
-  - master
-
-jobs:
-    make-pages:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v1
-
-      - name: select python version
-        uses: actions/setup-python@v1
-        with:
-          python-version: '3.7'
-
-      - name: install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install sphinx
-          python -m pip install sphinx_rtd_theme
-      - name: build documentation
-        run: |
-          cd docs
-          make html
-          touch _build/html/.nojekyll
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-          ACTIONS_DEPLOY_KEY: ${{ secrets.ghpagesdk }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: docs/_build/html
-```
-
--   Create SSH keys in Linux/Putty
--   In repo settings\>deploy add a=deply key such as \"ghpagesdk\" and
-    copy/paste public key hash
--   In repo settings\>secrets add a secret key with same name
-    \"ghpagesdk\" and copy/paste private key hash.
--   make a commit to the master brach and should all be working.
